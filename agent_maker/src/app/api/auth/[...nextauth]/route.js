@@ -1,5 +1,9 @@
 import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
+// CHANGE THIS LINE:
+// import { get_user } from '../../../lib/database'
+// TO THIS:
+import { get_user } from '../../../../lib/database'
 
 const handler = NextAuth({
   providers: [
@@ -12,14 +16,15 @@ const handler = NextAuth({
       },
       async authorize(credentials) {
         try {
-          // TODO: Replace with actual database check
-          if (credentials?.email === 'test@example.com' && credentials?.password === 'password123') {
+            const user = await get_user(credentials.email, credentials.password)
+          if(user)
+          {
             return {
-              id: '1',
-              email: credentials.email,
-              name: 'Test User',
-              firstName: 'Test',
-              lastName: 'User'
+              id: user.id,
+              email: user.email,
+              name: user.name,
+              firstName: user.firstName,
+              lastName: user.lastName
             }
           }
           

@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { add_user } from '../../../../lib/database';
 
 export async function POST(request) {
   try {
@@ -50,16 +51,28 @@ export async function POST(request) {
     // 3. Save user to database
     // 4. Send verification email (optional)
     
-    return NextResponse.json({ 
-      success: true, 
-      message: 'Account created successfully',
-      user: { 
-        id: Date.now().toString(), 
-        firstName,
-        lastName,
-        email
-      }
-    });
+     try {
+      // Save user to database using your existing function
+      const result = await add_user(firstName, lastName, email, password);
+      
+      return NextResponse.json({ 
+        success: true, 
+        message: 'Account created successfully',
+        user: { 
+          id: result.insertedId.toString(), 
+          firstName,
+          lastName,
+          email
+        }
+      });
+      
+    } catch (dbError) {
+      console.error('Database error:', dbError);
+      return NextResponse.json(
+        { success: false, message: 'Email already exists or database error' },
+        { status: 409 }
+      );
+    }
     
   } catch (error) {
     console.error('Signup error:', error);
