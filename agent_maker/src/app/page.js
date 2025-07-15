@@ -1,6 +1,10 @@
+"use client";
 import Link from "next/link";
+import { useSession, signOut } from 'next-auth/react';
 
 export default function Home() {
+  const { data: session, status } = useSession();
+
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 bg-gray-50 dark:bg-gray-900">
       <main className="flex flex-col gap-[32px] row-start-2 items-center">
@@ -24,6 +28,13 @@ export default function Home() {
           <h1 className="text-5xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight animate-slideInFromBottom">
             WhatsApp Agent Maker
           </h1>
+          {session ? (
+            <div className="mb-4">
+              <p className="text-2xl text-green-600 dark:text-green-400 font-semibold animate-fadeInUp animation-delay-300">
+                Welcome back, {session.user?.firstName || session.user?.name?.split(' ')[0] || session.user?.email}! 👋
+              </p>
+            </div>
+          ) : null}
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-4 max-w-2xl leading-relaxed animate-fadeInUp animation-delay-400">
             Create, deploy, and manage intelligent WhatsApp automation agents with ease.
           </p>
@@ -33,24 +44,51 @@ export default function Home() {
         </div>
 
         <div className="flex gap-6 items-center flex-col sm:flex-row mb-12 animate-fadeInUp animation-delay-800">
-          <Link
-            href="/signup"
-            className="rounded-xl bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-2 hover:from-green-600 hover:to-green-700 group"
-          >
-            <svg className="w-5 h-5 transition-transform duration-300 group-hover:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-            </svg>
-            Get Started Free
-          </Link>
-          <Link
-            href="/login"
-            className="rounded-xl border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-8 py-4 font-semibold text-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300 flex items-center gap-2 hover:border-gray-400 dark:hover:border-gray-500 hover:shadow-lg transform hover:scale-105 group"
-          >
-            <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
-            </svg>
-            Sign In
-          </Link>
+          {session ? (
+            // User is logged in - show dashboard and logout
+            <>
+              <Link
+                href="/dashboard"
+                className="rounded-xl bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-2 hover:from-green-600 hover:to-green-700 group"
+              >
+                <svg className="w-5 h-5 transition-transform duration-300 group-hover:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+                Go to Dashboard
+              </Link>
+              <button
+                onClick={() => signOut()}
+                className="rounded-xl border-2 border-red-300 dark:border-red-600 text-red-700 dark:text-red-300 px-8 py-4 font-semibold text-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition-all duration-300 flex items-center gap-2 hover:border-red-400 dark:hover:border-red-500 hover:shadow-lg transform hover:scale-105 group"
+              >
+                <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                </svg>
+                Sign Out
+              </button>
+            </>
+          ) : (
+            // User is not logged in - show signup and login
+            <>
+              <Link
+                href="/signup"
+                className="rounded-xl bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-2 hover:from-green-600 hover:to-green-700 group"
+              >
+                <svg className="w-5 h-5 transition-transform duration-300 group-hover:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
+                Get Started Free
+              </Link>
+              <Link
+                href="/login"
+                className="rounded-xl border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-8 py-4 font-semibold text-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300 flex items-center gap-2 hover:border-gray-400 dark:hover:border-gray-500 hover:shadow-lg transform hover:scale-105 group"
+              >
+                <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                </svg>
+                Sign In
+              </Link>
+            </>
+          )}
         </div>
 
         {/* Features Grid */}

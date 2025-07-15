@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from 'react';
+import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import AuthNavigation from '../../components/AuthNavigation';
 
@@ -17,6 +19,7 @@ export default function SignUpPage() {
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [acceptTerms, setAcceptTerms] = useState(false);
+  const router = useRouter();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -81,18 +84,46 @@ export default function SignUpPage() {
     }
     
     setIsLoading(true);
-    // Here you would typically make an API call to your backend
+    setErrors({});
+    
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      console.log('Sign up form submitted:', formData);
-      // Handle successful sign up here
+      // First, create the user account via API
+      const response = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        // Account created successfully, now sign them in
+        const result = await signIn('credentials', {
+          email: formData.email,
+          password: formData.password,
+          redirect: false,
+        });
+
+        if (result?.error) {
+          setErrors({ general: 'Account created but login failed. Please try signing in manually.' });
+        } else {
+          // Both signup and login successful - redirect to dashboard
+          router.push('/dashboard');
+        }
+      } else {
+        setErrors({ general: data.message || 'Signup failed' });
+      }
     } catch (error) {
-      console.error('Sign up error:', error);
+      console.error('Signup error:', error);
+      setErrors({ general: 'An error occurred during signup' });
     } finally {
       setIsLoading(false);
     }
   };
+
+
 
   const getPasswordStrength = () => {
     const password = formData.password;
@@ -332,6 +363,12 @@ export default function SignUpPage() {
                 <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.terms}</p>
               )}
             </div>
+
+            {errors.general && (
+              <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-3">
+                <p className="text-sm text-red-600 dark:text-red-400">{errors.general}</p>
+              </div>
+            )}
 
             <button
               type="submit"

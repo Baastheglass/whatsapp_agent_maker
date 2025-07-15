@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from 'react';
+import { signIn, getSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import AuthNavigation from '../../components/AuthNavigation';
 
@@ -12,6 +14,7 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -54,18 +57,30 @@ export default function LoginPage() {
     }
     
     setIsLoading(true);
-    // Here you would typically make an API call to your backend
+    setErrors({});
+    
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      console.log('Login form submitted:', formData);
-      // Handle successful login here
+      const result = await signIn('credentials', {
+        email: formData.email,
+        password: formData.password,
+        redirect: false,
+      });
+
+      if (result?.error) {
+        setErrors({ general: 'Invalid email or password' });
+      } else {
+        // Login successful - redirect to dashboard
+        router.push('/dashboard');
+      }
     } catch (error) {
       console.error('Login error:', error);
+      setErrors({ general: 'An error occurred during login' });
     } finally {
       setIsLoading(false);
     }
   };
+
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 px-4 py-12">
@@ -165,6 +180,12 @@ export default function LoginPage() {
                 </a>
               </div>
             </div>
+
+            {errors.general && (
+              <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-3">
+                <p className="text-sm text-red-600 dark:text-red-400">{errors.general}</p>
+              </div>
+            )}
 
             <button
               type="submit"
