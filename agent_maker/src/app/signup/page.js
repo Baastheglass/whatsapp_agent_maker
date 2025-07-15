@@ -118,7 +118,7 @@ export default function SignUpPage() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-emerald-100 dark:from-gray-900 dark:to-gray-800 px-4 py-12">
       <div className="max-w-md w-full space-y-8">
         <AuthNavigation />
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 animate-fadeInUp">
           <div className="text-center">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
               Create your account
