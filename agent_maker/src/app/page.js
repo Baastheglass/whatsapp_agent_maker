@@ -127,7 +127,7 @@ export default function Home() {
         </div>
       </main>
       
-      <footer className="mt-auto py-6 lg:py-8 flex flex-col items-center justify-center text-xs lg:text-sm text-gray-500 dark:text-gray-400 space-y-2 animate-fadeInUp animation-delay-1600 responsive-container">
+      <footer className="mt-auto py-6 lg:py-8 flex flex-col items-center justify-center text-xs lg:text-sm text-gray-500 dark:text-gray-400 space-y-4 lg:space-y-5 animate-fadeInUp animation-delay-1600 responsive-container">
         <div className="flex items-center gap-2 sm:gap-3 lg:gap-4 flex-wrap justify-center">
           <span>© 2025 WhatsApp Agent Maker</span>
           <span className="hidden sm:inline">•</span>
