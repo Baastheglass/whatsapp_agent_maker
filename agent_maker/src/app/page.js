@@ -24,26 +24,26 @@ export default function Home() {
           </div>
         </div>
         
-        <div className="text-center max-w-3xl mx-auto px-4 animate-fadeInUp animation-delay-200 mb-8 lg:mb-10">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 lg:mb-6 tracking-tight animate-slideInFromBottom leading-tight">
+        <div className="text-center max-w-3xl mx-auto px-4 animate-fadeInUp animation-delay-200 mb-12 lg:mb-16">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6 lg:mb-8 tracking-tight animate-slideInFromBottom leading-tight">
             WhatsApp Agent Maker
           </h1>
           {session ? (
-            <div className="mb-3 lg:mb-4">
+            <div className="mb-5 lg:mb-6">
               <p className="text-base sm:text-lg md:text-xl lg:text-xl text-green-600 dark:text-green-400 font-semibold animate-fadeInUp animation-delay-300">
                 Welcome back, {session.user?.firstName || session.user?.name?.split(' ')[0] || session.user?.email}! 👋
               </p>
             </div>
           ) : null}
-          <p className="text-sm sm:text-base md:text-lg lg:text-lg text-gray-600 dark:text-gray-300 mb-3 lg:mb-4 leading-relaxed animate-fadeInUp animation-delay-400 mx-auto">
+          <p className="text-sm sm:text-base md:text-lg lg:text-lg text-gray-600 dark:text-gray-300 mb-5 lg:mb-6 leading-relaxed animate-fadeInUp animation-delay-400 mx-auto">
             Create, deploy, and manage intelligent WhatsApp automation agents with ease.
           </p>
-          <p className="text-xs sm:text-sm md:text-base lg:text-base text-gray-500 dark:text-gray-400 mb-8 lg:mb-10 animate-fadeInUp animation-delay-600 mx-auto max-w-2xl leading-relaxed">
+          <p className="text-xs sm:text-sm md:text-base lg:text-base text-gray-500 dark:text-gray-400 mb-12 lg:mb-16 animate-fadeInUp animation-delay-600 mx-auto max-w-2xl leading-relaxed">
             Build powerful chatbots, automate customer service, and streamline your WhatsApp business communications.
           </p>
         </div>
 
-        <div className="flex gap-3 sm:gap-4 lg:gap-5 items-center flex-col sm:flex-row mb-10 lg:mb-12 animate-fadeInUp animation-delay-800">
+        <div className="flex gap-4 sm:gap-5 lg:gap-6 items-center flex-col sm:flex-row mb-16 lg:mb-20 animate-fadeInUp animation-delay-800">
           {session ? (
             // User is logged in - show dashboard and logout
             <>
@@ -89,9 +89,11 @@ export default function Home() {
               </Link>
             </>
           )}
-        </div>        {/* Features Grid */}
-        <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 lg:mb-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+        </div>
+
+        {/* Features Grid */}
+        <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 lg:mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             <div className="bg-white dark:bg-gray-800 p-5 lg:p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-all duration-300 transform hover:scale-105 animate-fadeInUp animation-delay-1000 group border border-gray-200 dark:border-gray-700">
               <div className="w-10 h-10 lg:w-12 lg:h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mx-auto mb-4 lg:mb-5 transition-all duration-300 group-hover:bg-blue-200 dark:group-hover:bg-blue-800 group-hover:scale-110 shadow-sm">
                 <svg className="w-5 h-5 lg:w-6 lg:h-6 text-blue-600 dark:text-blue-400 transition-transform duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
