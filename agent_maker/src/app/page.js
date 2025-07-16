@@ -9,7 +9,7 @@ export default function Home() {
     <div className="font-sans bg-gray-50 dark:bg-gray-900 flex flex-col">
       <main className="flex-1 flex flex-col items-center justify-start responsive-container pt-32 pb-12 sm:pt-40 sm:pb-16 lg:pt-48 lg:pb-20 min-h-screen">
         {/* Custom Logo/Icon with animations */}
-        <div className="flex items-center justify-center mb-6 lg:mb-8 animate-fadeInUp">
+        <div className="flex items-center justify-center mb-6 lg:mb-8 mt-8 sm:mt-12 lg:mt-16 animate-fadeInUp">
           <div className="relative group">
             <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:scale-110">
               <svg className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white transition-transform duration-300 group-hover:rotate-12" fill="currentColor" viewBox="0 0 24 24">
