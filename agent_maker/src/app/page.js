@@ -7,7 +7,7 @@ export default function Home() {
 
   return (
     <div className="font-sans bg-gray-50 dark:bg-gray-900 flex flex-col">
-      <main className="flex-1 flex flex-col items-center justify-start responsive-container pt-20 pb-12 sm:pt-24 sm:pb-16 lg:pt-32 lg:pb-20 min-h-screen">
+      <main className="flex-1 flex flex-col items-center justify-start responsive-container pt-32 pb-12 sm:pt-40 sm:pb-16 lg:pt-48 lg:pb-20 min-h-screen">
         {/* Custom Logo/Icon with animations */}
         <div className="flex items-center justify-center mb-6 lg:mb-8 animate-fadeInUp">
           <div className="relative group">
