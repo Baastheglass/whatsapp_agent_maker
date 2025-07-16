@@ -24,7 +24,8 @@
 .DS_Store
 *.pem
 db_test.js
-
+microservices/.wwebjs_cache/
+microservices/session
 # debug
 npm-debug.log*
 yarn-debug.log*
