@@ -90,43 +90,43 @@ export default function Home() {
             </>
           )}
         </div>        {/* Features Grid */}
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 lg:mb-24">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-            <div className="bg-white dark:bg-gray-800 p-8 lg:p-12 rounded-2xl shadow-lg text-center hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-fadeInUp animation-delay-1000 group border border-gray-200 dark:border-gray-700">
-              <div className="w-16 h-16 lg:w-20 lg:h-20 bg-blue-100 dark:bg-blue-900 rounded-2xl flex items-center justify-center mx-auto mb-8 lg:mb-10 transition-all duration-300 group-hover:bg-blue-200 dark:group-hover:bg-blue-800 group-hover:scale-110 shadow-lg">
-                <svg className="w-8 h-8 lg:w-10 lg:h-10 text-blue-600 dark:text-blue-400 transition-transform duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 lg:mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            <div className="bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-fadeInUp animation-delay-1000 group border border-gray-200 dark:border-gray-700">
+              <div className="w-12 h-12 lg:w-16 lg:h-16 bg-blue-100 dark:bg-blue-900 rounded-xl flex items-center justify-center mx-auto mb-6 lg:mb-6 transition-all duration-300 group-hover:bg-blue-200 dark:group-hover:bg-blue-800 group-hover:scale-110 shadow-md">
+                <svg className="w-6 h-6 lg:w-8 lg:h-8 text-blue-600 dark:text-blue-400 transition-transform duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
               </div>
-              <h3 className="text-xl lg:text-3xl font-semibold text-gray-900 dark:text-white mb-6 lg:mb-8 transition-colors duration-300 group-hover:text-blue-600 dark:group-hover:text-blue-400">Smart Automation</h3>
-              <p className="text-base lg:text-lg text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-300 group-hover:text-gray-700 dark:group-hover:text-gray-300">Create intelligent agents that understand context and respond naturally to customer inquiries.</p>
+              <h3 className="text-lg lg:text-2xl font-semibold text-gray-900 dark:text-white mb-4 lg:mb-5 transition-colors duration-300 group-hover:text-blue-600 dark:group-hover:text-blue-400">Smart Automation</h3>
+              <p className="text-sm lg:text-base text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-300 group-hover:text-gray-700 dark:group-hover:text-gray-300">Create intelligent agents that understand context and respond naturally to customer inquiries.</p>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 p-8 lg:p-12 rounded-2xl shadow-lg text-center hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-fadeInUp animation-delay-1200 group border border-gray-200 dark:border-gray-700">
-              <div className="w-16 h-16 lg:w-20 lg:h-20 bg-green-100 dark:bg-green-900 rounded-2xl flex items-center justify-center mx-auto mb-8 lg:mb-10 transition-all duration-300 group-hover:bg-green-200 dark:group-hover:bg-green-800 group-hover:scale-110 shadow-lg">
-                <svg className="w-8 h-8 lg:w-10 lg:h-10 text-green-600 dark:text-green-400 transition-transform duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-fadeInUp animation-delay-1200 group border border-gray-200 dark:border-gray-700">
+              <div className="w-12 h-12 lg:w-16 lg:h-16 bg-green-100 dark:bg-green-900 rounded-xl flex items-center justify-center mx-auto mb-6 lg:mb-6 transition-all duration-300 group-hover:bg-green-200 dark:group-hover:bg-green-800 group-hover:scale-110 shadow-md">
+                <svg className="w-6 h-6 lg:w-8 lg:h-8 text-green-600 dark:text-green-400 transition-transform duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="text-xl lg:text-3xl font-semibold text-gray-900 dark:text-white mb-6 lg:mb-8 transition-colors duration-300 group-hover:text-green-600 dark:group-hover:text-green-400">Easy Setup</h3>
-              <p className="text-base lg:text-lg text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-300 group-hover:text-gray-700 dark:group-hover:text-gray-300">Get your WhatsApp agent up and running in minutes with our intuitive drag-and-drop interface.</p>
+              <h3 className="text-lg lg:text-2xl font-semibold text-gray-900 dark:text-white mb-4 lg:mb-5 transition-colors duration-300 group-hover:text-green-600 dark:group-hover:text-green-400">Easy Setup</h3>
+              <p className="text-sm lg:text-base text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-300 group-hover:text-gray-700 dark:group-hover:text-gray-300">Get your WhatsApp agent up and running in minutes with our intuitive drag-and-drop interface.</p>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 p-8 lg:p-12 rounded-2xl shadow-lg text-center hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-fadeInUp animation-delay-1400 group border border-gray-200 dark:border-gray-700">
-              <div className="w-16 h-16 lg:w-20 lg:h-20 bg-purple-100 dark:bg-purple-900 rounded-2xl flex items-center justify-center mx-auto mb-8 lg:mb-10 transition-all duration-300 group-hover:bg-purple-200 dark:group-hover:bg-purple-800 group-hover:scale-110 shadow-lg">
-                <svg className="w-8 h-8 lg:w-10 lg:h-10 text-purple-600 dark:text-purple-400 transition-transform duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-fadeInUp animation-delay-1400 group border border-gray-200 dark:border-gray-700">
+              <div className="w-12 h-12 lg:w-16 lg:h-16 bg-purple-100 dark:bg-purple-900 rounded-xl flex items-center justify-center mx-auto mb-6 lg:mb-6 transition-all duration-300 group-hover:bg-purple-200 dark:group-hover:bg-purple-800 group-hover:scale-110 shadow-md">
+                <svg className="w-6 h-6 lg:w-8 lg:h-8 text-purple-600 dark:text-purple-400 transition-transform duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
               </div>
-              <h3 className="text-xl lg:text-3xl font-semibold text-gray-900 dark:text-white mb-6 lg:mb-8 transition-colors duration-300 group-hover:text-purple-600 dark:group-hover:text-purple-400">Analytics & Insights</h3>
-              <p className="text-base lg:text-lg text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-300 group-hover:text-gray-700 dark:group-hover:text-gray-300">Track performance, monitor conversations, and optimize your agents with detailed analytics.</p>
+              <h3 className="text-lg lg:text-2xl font-semibold text-gray-900 dark:text-white mb-4 lg:mb-5 transition-colors duration-300 group-hover:text-purple-600 dark:group-hover:text-purple-400">Analytics & Insights</h3>
+              <p className="text-sm lg:text-base text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-300 group-hover:text-gray-700 dark:group-hover:text-gray-300">Track performance, monitor conversations, and optimize your agents with detailed analytics.</p>
             </div>
           </div>
         </div>
       </main>
       
-      <footer className="mt-auto py-12 lg:py-16 flex flex-col items-center justify-center text-sm lg:text-base text-gray-500 dark:text-gray-400 space-y-4 animate-fadeInUp animation-delay-1600 responsive-container">
-        <div className="flex items-center gap-4 sm:gap-6 lg:gap-8 flex-wrap justify-center">
+      <footer className="mt-auto py-8 lg:py-12 flex flex-col items-center justify-center text-sm lg:text-base text-gray-500 dark:text-gray-400 space-y-3 animate-fadeInUp animation-delay-1600 responsive-container">
+        <div className="flex items-center gap-3 sm:gap-4 lg:gap-6 flex-wrap justify-center">
           <span>© 2025 WhatsApp Agent Maker</span>
           <span className="hidden sm:inline">•</span>
           <a href="#" className="hover:text-gray-700 dark:hover:text-gray-300 transition-all duration-300 hover:scale-105">Privacy Policy</a>
